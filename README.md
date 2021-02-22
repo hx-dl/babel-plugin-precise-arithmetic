@@ -4,32 +4,24 @@ A babel plugin as a solution for the problem in the calculation precision of the
 
 ---
 
-
-<!-- prettier-ignore-start -->
-[![Build Status][build-badge]][build]
-[![Code Coverage][coverage-badge]][coverage]
-[![version][version-badge]][package]
-[![downloads][downloads-badge]][npmtrends]
-[![PRs Welcome][prs-badge]][prs]
-[![Code of Conduct][coc-badge]][coc]
-![](https://img.shields.io/github/stars/hx-dl/babel-plugin-precise-arithmetic?label=star&style=social)
-<!-- prettier-ignore-end -->
-
-
+![](https://img.shields.io/badge/build-passing-green) ![](https://img.shields.io/github/license/hx-dl/babel-plugin-precise-arithmetic) ![](https://img.shields.io/github/stars/hx-dl/babel-plugin-precise-arithmetic?label=star&style=social)
 
 ## Usage
 
 ```
 npm install babel-plugin-precise-arithmetic --save-dev
 ```
+
 ## Add babel-plugin-precise-arithmetic
 
 .babelrc
+
 ```json
 {
-	"plugins": ["precise-arithmetic"]
+  "plugins": ["precise-arithmetic"]
 }
 ```
+
 or
 
 webpack.config.js
@@ -47,6 +39,7 @@ webpack.config.js
 },
 ...
 ```
+
 ## Example
 
 By this plugin, it translate BinaryExpression to FunctionCall for a right result with float number.
@@ -72,5 +65,4 @@ var a = accSub(0.8, 0.2); //0.6
 
 ```
 
-> Note: it doesn't work with eval() And just support (+ - * \ += -=), if the members of the operator is not Number type, it will return the result as it should be
-
+> Note: it doesn't work with eval() And just support (+ - \* \ += -=), if the members of the operator is not Number type, it will return the result as it should be
