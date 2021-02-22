@@ -1,18 +1,33 @@
-# babel-plugin-arithmetic
+# babel-plugin-precise-arithmetic
 
 A babel plugin as a solution for the problem in the calculation precision of the floating points numbers.
+
+---
+
+
+<!-- prettier-ignore-start -->
+[![Build Status][build-badge]][build]
+[![Code Coverage][coverage-badge]][coverage]
+[![version][version-badge]][package]
+[![downloads][downloads-badge]][npmtrends]
+[![PRs Welcome][prs-badge]][prs]
+[![Code of Conduct][coc-badge]][coc]
+![](https://img.shields.io/github/stars/hx-dl/babel-plugin-precise-arithmetic?label=star&style=social)
+<!-- prettier-ignore-end -->
+
+
 
 ## Usage
 
 ```
-npm install babel-plugin-arithmetic --save-dev
+npm install babel-plugin-precise-arithmetic --save-dev
 ```
-## Add babel-plugin-arithmetic
+## Add babel-plugin-precise-arithmetic
 
 .babelrc
 ```json
 {
-	"plugins": ["arithmetic"]
+	"plugins": ["precise-arithmetic"]
 }
 ```
 or
@@ -26,7 +41,7 @@ webpack.config.js
 	loader: 'babel-loader',
 	option: {
 		plugins: [
-			require('babel-plugin-arithmetic')
+			require('babel-plugin-precise-arithmetic')
 		]
 	},
 },
@@ -40,7 +55,7 @@ By this plugin, it translate BinaryExpression to FunctionCall for a right result
 var a = 0.1 + 0.2;
 //0.30000000000000004
 	↓ ↓ ↓ ↓ ↓ ↓
-var { accAdd } = require('babel-plugin-arithmetic/src/calc.js');
+var { accAdd } = require('babel-plugin-precise-arithmetic/src/calc.js');
 var a = accAdd(0.1, 0.2); // 0.3
 ```
 
@@ -50,7 +65,7 @@ var b = 0.8 - 0.2;
 //0.30000000000000004
 //0.6000000000000001
 	↓ ↓ ↓ ↓ ↓ ↓
-var { accAdd, accSub } = require('babel-plugin-arithmetic/src/calc.js');
+var { accAdd, accSub } = require('babel-plugin-precise-arithmetic/src/calc.js');
 var a = accAdd(0.1, 0.2); //0.3
 var a = accSub(0.8, 0.2); //0.6
 
