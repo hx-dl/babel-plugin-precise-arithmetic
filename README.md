@@ -67,6 +67,6 @@ var a = accSub(0.8, 0.2); //0.6
 
 ```
 
-> 注意: 该插件仅支持了 + - \* \ += -= 的运算情况，同事 eval中的代码也无法处理。 如果运算符的成员存在非Number类型，转换后的工具函数会直接返回原生 JavaScript 运算结果。
+> 注意: 该插支持 + - \* \ += -= 的运算情况， eval中的代码也无法处理。 如果运算符的成员存在非Number类型，转换后的工具函数会直接返回原生 JavaScript 运算结果。
 
 > Note: it doesn't work with eval() And just support (+ - \* \ += -=), if the members of the operator is not Number type, it will return the result as it should be
