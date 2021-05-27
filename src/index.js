@@ -1,3 +1,4 @@
+//缓存用于转换的对应函数
 function pushCache(operation) {
   var operationFun;
   switch (operation) {
@@ -29,7 +30,7 @@ function pushCache(operation) {
 
 var needRequireCache = [];
 module.exports = function ({ template: template, types: t }) {
-  var preOperationAST = template("FUN_NAME(ARGS)"); //将0.1+0.2 类似的四则运算 转化为 addCalc(0.1+0.2) 的模板
+  var preOperationAST = template("FUN_NAME(ARGS)"); //将0.1+0.2 类似的四则运算 转化为 add(0.1,0.2) 的模板
   var requireAST = template("var PROPERTIES=require(SOURCE)"); //引入相应函数的模板
 
   function preObjectExpressionAST(keys) {
@@ -46,6 +47,7 @@ module.exports = function ({ template: template, types: t }) {
         exit: function (path) {
           if (needRequireCache.length <= 0) return;
           var directives = path.node.directives;
+          //遇到calc polyfill的内容直接跳过处理
           if (directives[0] && directives[0].value.value == "calc polyfill") {
             return;
           }
