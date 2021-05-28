@@ -30,8 +30,11 @@ function pushCache(operation) {
 
 var needRequireCache = [];
 module.exports = function ({ template: template, types: t }) {
-  var preOperationAST = template("FUN_NAME(ARGS)"); //将0.1+0.2 类似的四则运算 转化为 add(0.1,0.2) 的模板
-  var requireAST = template("var PROPERTIES=require(SOURCE)"); //引入相应函数的模板
+  
+  //将0.1+0.2 类似的四则运算 转化为 add(0.1,0.2) 的模板
+  var preOperationAST = template("FUN_NAME(ARGS)"); 
+  //引入相应函数的模板
+  var requireAST = template("var PROPERTIES=require(SOURCE)"); 
 
   function preObjectExpressionAST(keys) {
     //传入的keys为require的数组
